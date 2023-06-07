@@ -1,0 +1,10 @@
+{
+    "seed": 6169,
+    "bs": 64,
+    "lr": 0.00048780283535549947,
+    "filter_size": 7,
+    "filter_growth": 2,
+    "n_filters": 16,
+    "n_convs": 1,
+    "dense_nodes": 128
+}
