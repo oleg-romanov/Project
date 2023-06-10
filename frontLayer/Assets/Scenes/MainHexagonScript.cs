@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class MainHexagonScript : MonoBehaviour
 {
-    private static string pathToFoodPictures = "Assets/Images/";
+    //private static string pathToFoodPictures = "Assets/Images/";
+    private static string pathToFoodPictures = "Assets/Resources/";
     [SerializeField] public static string imageContainerName = "ImageHolder";
 
     public static bool correctFoodPictureIsSelected = false;
+
+    [SerializeField] private TextMeshProUGUI correctcountText;
 
     public static string currentMainPictureName;
     public static GameObject hexagonWithCorrectPicture;
@@ -38,9 +42,15 @@ public class MainHexagonScript : MonoBehaviour
 
     private GameObject[] hexagonsChildren;
 
+    public int correctCount = 0;
+
     // Start is called before the first frame update
     void Start()
     {
+        if (correctcountText != null)
+        {
+            correctcountText.text = correctCount.ToString();
+        }
         imageContainerTransform = transform.Find(imageContainerName);
         imageComponent = imageContainerTransform.GetComponent<Image>();
 
@@ -92,6 +102,11 @@ public class MainHexagonScript : MonoBehaviour
     {
         if (correctFoodPictureIsSelected)
         {
+            correctCount++;
+            if (correctcountText != null)
+            {
+                correctcountText.text = correctCount.ToString();
+            }
             correctFoodPictureIsSelected = false;
             if (isDebug)
             {
@@ -140,6 +155,10 @@ public class MainHexagonScript : MonoBehaviour
                 imageComponent.sprite = foodPictureSprite;
                 currentMainPictureName = foodPictureName;
             }
+        }
+        else
+        {
+            Debug.Log("ImageComponent MainHaxagon is null");
         }
     }
 

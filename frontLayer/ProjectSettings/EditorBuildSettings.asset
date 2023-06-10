@@ -6,9 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 54df97e698c484e23b150a79d53bcc54
+  - enabled: 1
     path: Assets/Scenes/FlowerGame.unity
     guid: d8bb84b057b634524a23b9db2e322dd1
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/CrossesGame.unity
     guid: ac6bb86f35d254343b857669e76895a7
+  - enabled: 1
+    path: Assets/Scenes/SideToSideMovements.unity
+    guid: 192e303b2c06d4d6b83559c806d94351
+  - enabled: 1
+    path: Assets/Scenes/TopAndBottomMovements.unity
+    guid: ce53aa20570a846f19f6dd4aba98832f
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}

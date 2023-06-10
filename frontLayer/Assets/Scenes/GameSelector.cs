@@ -6,18 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class GameSelector : MonoBehaviour
 {
-    // Start is called before the first frame update
-    //void Start()
-    //{
-        
-    //}
-
-    //// Update is called once per frame
-    //void Update()
-    //{
-        
-    //}
-
     public void StartFlowerGame()
     {
         SceneManager.LoadScene("FlowerGame");
@@ -26,5 +14,20 @@ public class GameSelector : MonoBehaviour
     public void StartCrossesGame()
     {
         SceneManager.LoadScene("CrossesGame");
+    }
+
+    public void StartLeftRightGame()
+    {
+        SceneManager.LoadScene("SideToSideMovements");
+    }
+
+    public void StartTopDownGame()
+    {
+        SceneManager.LoadScene("TopAndBottomMovements");
+    }
+
+    public void StartFocusingGame()
+    {
+        SceneManager.LoadScene("SampleScene");
     }
 }

@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class CheckMouseScript : MonoBehaviour
 {
-    private static string pathToFoodPictures = "Assets/Images/";
-    [SerializeField] public static string imageContainerName = "ImageHolder";
+    //private static string pathToFoodPictures = "Assets/Images/";
+    private static string pathToFoodPictures = "Assets/Resources/";
+    public string imageContainerName = "ImageHolder";
 
     [SerializeField] private bool isDebug = false;
 
@@ -18,6 +19,11 @@ public class CheckMouseScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (transform == null)
+        {
+            Debug.Log("transform is null");
+            return;
+        }
         childTransform = transform.Find(imageContainerName);
         if (childTransform != null)
         {
@@ -39,10 +45,6 @@ public class CheckMouseScript : MonoBehaviour
         {
             Debug.Log("childTransform = null в CheckMouseScript");
         }
-
-        //imageContainer = GameObject.Find(imageContainerName);
-        //imageComponent = imageContainer.GetComponent<Image>();
-        //imageComponent.color = Color.red;
     }
 
     // Update is called once per frame
@@ -98,18 +100,5 @@ public class CheckMouseScript : MonoBehaviour
         {
             Debug.Log("childTransform у " + name + " равен null");
         }
-
-
-        //if (imageComponent != null)
-        //{
-        //    Sprite foodPictureSprite = UnityEditor.AssetDatabase.LoadAssetAtPath<Sprite>(pathToFoodPictures + foodPictureName);
-        //    if (foodPictureSprite != null)
-        //    {
-        //        imageComponent.sprite = foodPictureSprite;
-        //    }
-        //} else
-        //{
-        //    Debug.Log("imageComponent is null");
-        //}
     }
 }

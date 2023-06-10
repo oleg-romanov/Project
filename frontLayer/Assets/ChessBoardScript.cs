@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ChessBoardScript : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class ChessBoardScript : MonoBehaviour
     public GameObject cellPrefabBlack;
 
     private GridLayoutGroup gridLayout;
+
+    //[SerializeField] private TextMeshProUGUI correctcountText;
+    //private int correctCount = 0;
 
     // Количество строк и столбцов
     private int rowCount = 8;
@@ -22,6 +26,10 @@ public class ChessBoardScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //if (correctcountText != null)
+        //{
+        //    correctcountText.text = correctCount.ToString();
+        //}
         gridLayout = GetComponent<GridLayoutGroup>();
         GenerateChessboard();
     }
@@ -31,6 +39,11 @@ public class ChessBoardScript : MonoBehaviour
     {
         if (targetIsHit)
         {
+            //correctCount++;
+            //if (correctcountText != null)
+            //{
+            //    correctcountText.text = correctCount.ToString();
+            //}
             Debug.Log("------------------------");
             targetIsHit = false;
             foreach (Transform child in transform)

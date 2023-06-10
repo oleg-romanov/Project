@@ -51,7 +51,6 @@ public class MouseFollow : MonoBehaviour
         //float y = float.Parse(coordinates[1]);
         if (stream != null && stream.DataAvailable)
         {
-            Debug.Log("Стрим есть и данные тоже");
             int bytesRead = stream.Read(buffer, 0, bufferSize);
 
             if (bytesRead > 0)
@@ -59,6 +58,8 @@ public class MouseFollow : MonoBehaviour
                 byte infoByte = buffer[0];
                 float x = System.BitConverter.ToSingle(buffer, 1);
                 float y = System.BitConverter.ToSingle(buffer, 5);
+                x -= 720;
+                y -= 450;
 
                 Debug.Log($"x: {x}, y: {y})");
 
@@ -71,14 +72,6 @@ public class MouseFollow : MonoBehaviour
             }
         }
 
-        //Debug.Log($"Coordinates: ({x}, {y})");
-
-        //lastMouse = new Vector3(x: x, y: y, 0) - lastMouse;
-        //lastMouse = new Vector3(-lastMouse.y * camSens, lastMouse.x * camSens, 0);
-        //lastMouse = new Vector3(transform.eulerAngles.x + lastMouse.x, transform.eulerAngles.y + lastMouse.y, 0);
-        //transform.eulerAngles = lastMouse;
-        //lastMouse = new Vector3(x: x, y: y, 0);
-        //Vector3 p = new Vector3(targetPosition.x, targetPosition.y, 0);
         Vector3 p = new Vector3(targetPosition.x, targetPosition.y, 0);
 
         if (Input.GetKey(KeyCode.LeftShift))
@@ -109,12 +102,6 @@ public class MouseFollow : MonoBehaviour
             transform.Translate(p);
         }
     }
-
-    //private void OnEnable()
-    //{
-    //    Debug.Log("Вызван OnEnable");
-    //    stream = client.GetStream();
-    //}
 
     private void OnDisable()
     {
